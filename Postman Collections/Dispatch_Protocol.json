@@ -1385,7 +1385,7 @@
     {
       "_postman_id": "5216580-92d33d5a-bbe5-4c37-b095-1686be530494",
       "name": "Localhost API",
-      "description": "",
+      "description": "The [Dispatch Go client](http://dispatchlabs.io/dispatchlabs/disgo) includes a local API with several functions. Because the API allows for access to the Private key, we have added basic authentication for the local API. The username defaul is \"Disgo\" and the password is \"Dance\" and the default login is included in this Postman collection.",
       "item": [
         {
           "_postman_id": "5216580-72671e44-f12b-4bc6-8a20-8efdea80f773",
