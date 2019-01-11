@@ -46,7 +46,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": ""
             },
-            "url": "http://{{testSeed}}:1975/v1/delegates",
+            "url": "http://{{devSeed}}:1975/v1/delegates",
             "description": "This URL / API call will return a list of all delegates on the Dispatch network. \n"
           },
           "response": [
@@ -102,7 +102,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": ""
             },
-            "url": "http://{{testNode}}:{{port}}/v1/accounts/{{testAccount}}",
+            "url": "http://{{devNode}}:{{port}}/v1/accounts/{{testAccount}}",
             "description": "This endpoint retrieves the detailed account information and balance of an address. \n"
           },
           "response": [
@@ -154,10 +154,10 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "raw": ""
             },
             "url": {
-              "raw": "http://{{testNode}}:{{port}}/v1/transactions?page={{pageNumber}}",
+              "raw": "http://{{devNode}}:{{port}}/v1/transactions?page={{pageNumber}}",
               "protocol": "http",
               "host": [
-                "{{testNode}}"
+                "{{devNode}}"
               ],
               "port": "{{port}}",
               "path": [
@@ -253,7 +253,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": ""
             },
-            "url": "http://{{testNode}}:{{port}}/v1/transactions/{{hash}}",
+            "url": "http://{{devNode}}:{{port}}/v1/transactions/{{hash}}",
             "description": "Call to retrieve a sepcific transaction using it's hash.\n"
           },
           "response": [
@@ -293,10 +293,10 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "raw": ""
             },
             "url": {
-              "raw": "http://{{testNode}}:{{port}}/v1/transactions?to={{testAccount}}&page={{pageNumber}}",
+              "raw": "http://{{devNode}}:{{port}}/v1/transactions?to={{testAccount}}&page={{pageNumber}}",
               "protocol": "http",
               "host": [
-                "{{testNode}}"
+                "{{devNode}}"
               ],
               "port": "{{port}}",
               "path": [
@@ -378,10 +378,10 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "raw": ""
             },
             "url": {
-              "raw": "http://{{testNode}}:{{port}}/v1/transactions?from=\"{{fromAddress}}\"&page={{pageNumber}}",
+              "raw": "http://{{devNode}}:{{port}}/v1/transactions?from=\"{{fromAddress}}\"&page={{pageNumber}}",
               "protocol": "http",
               "host": [
-                "{{testNode}}"
+                "{{devNode}}"
               ],
               "port": "{{port}}",
               "path": [
@@ -539,7 +539,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": "{\n        \"type\": 0,\n        \"value\": 5,\n        \"hash\": \"{{hash}}\",\n        \"from\": \"{{fromAddress}}\",\n        \"to\": \"{{toAddress}}\",\n        \"time\": {{$timestamp}},\n        \"signature\": \"{{signature}}\",\n        \"hertz\": \"2\"\n        \n}\n"
             },
-            "url": "http://{{testNode}}:{{port}}/v1/transactions",
+            "url": "http://{{devNode}}:{{port}}/v1/transactions",
             "description": "This endpoint will allow you to send a signed transaction using the hash of the transaction. Note that any parameter that is optional you should include and send as an empty string or 0; with the exception of the parameter named \"params\" which should be \"[]\" if empty.\n\n"
           },
           "response": [
@@ -600,7 +600,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": "{\n        \"value\": 5,\n        \"params\": \"[]\",\n        \"hash\": \"{{contractHash}}\",\n        \"type\": 2,\n        \"from\": \"{{fromAddress}}\",\n        \"to\": \"{{contractAddress}}\",\n        \"abi\": \"{{abi}}\",\n        \"method\": \"{{method}}\",\n        \"time\": {{$timestamp}},\n        \"signature\": \"{{signature}}\",\n        \"hertz\": \"2\"\n}"
             },
-            "url": "http://{{testNode}}:{{port}}/v1/transactions",
+            "url": "http://{{devNode}}:{{port}}/v1/transactions",
             "description": "This endpoint will allow you to send a transaction using the hash of the transaction. Note that any parameter that is optional you should include and send as an empty string or 0; with the exception of the parameter named \"params\" which should be \"[]\" if empty.\n\n"
           },
           "response": [
@@ -661,7 +661,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": "{\n        \"value\": 5,\n        \"params\": \"[]\",\n        \"hash\": \"{{contractHash}}\",\n        \"type\": 2,\n        \"from\": \"{{fromAddress}}\",\n        \"to\": \"{{contractAddress}}\",\n        \"abi\": \"{{abi}}\",\n        \"method\": \"getUserAssetIds\",\n        \"time\": {{$timestamp}},\n        \"signature\": \"{{signature}}\",\n        \"hertz\": \"2\"\n}"
             },
-            "url": "http://{{testNode}}:{{port}}/v1/transactions",
+            "url": "http://{{devNode}}:{{port}}/v1/transactions",
             "description": "This endpoint will allow you to send a transaction using the hash of the transaction. Note that any parameter that is optional you should include and send as an empty string or 0; with the exception of the parameter named \"params\" which should be \"[]\" if empty.\n\n"
           },
           "response": [
