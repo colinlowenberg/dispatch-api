@@ -35,7 +35,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
       "item": [
         {
           "_postman_id": "5216580-57091a1a-069d-417d-b0fa-dd26ff2fa180",
-          "name": "List TestNet Delegates",
+          "name": "List TestNet Nodes",
           "request": {
             "auth": {
               "type": "noauth"
@@ -46,7 +46,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": ""
             },
-            "url": "http://{{devSeed}}:1975/v1/delegates",
+            "url": "http://devseed.dispatchlabs.io:1975/v1/delegates",
             "description": "This URL / API call will return a list of all delegates on the Dispatch network. \n"
           },
           "response": [
@@ -723,7 +723,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
       "item": [
         {
           "_postman_id": "5216580-a829cf1a-1154-42aa-99dc-4d38f44c23e9",
-          "name": "List TestNet Delegates",
+          "name": "List TestNet Nodes",
           "request": {
             "auth": {
               "type": "noauth"
@@ -734,7 +734,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "mode": "raw",
               "raw": ""
             },
-            "url": "http://{{testSeed}}:1975/v1/delegates",
+            "url": "http://testseed.dispatchlabs.io:1975/v1/delegates",
             "description": "This URL / API call will return a list of all delegates on the Dispatch network. \n"
           },
           "response": [
@@ -1411,7 +1411,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
       "item": [
         {
           "_postman_id": "5216580-9a373c8d-6002-44ef-bfb0-1b280fa5f157",
-          "name": "List MainNet Delegates",
+          "name": "List MainNet Nodes",
           "request": {
             "auth": {
               "type": "noauth"
