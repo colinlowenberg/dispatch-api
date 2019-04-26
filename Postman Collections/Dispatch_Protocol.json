@@ -29,23 +29,20 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
   },
   "item": [
     {
-      "_postman_id": "5216580-41392da9-896e-43fa-8ebd-478004175ff8",
       "name": "DevNet API",
-      "description": "\nThe Dispatch protocol provides a modern HTTP API that follows the REST architecture with a JSON format. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application. [JSON](http://www.json.org) is returned by all API responses, including errors, although our API libraries convert responses to appropriate language-specific objects.\n\n### HTTP Responses\nDispatch's API uses conventional HTTP response codes to indicate the success or failure of an API request. Response codes in the 200-299 range indicate success, codes in the 400-499 range indicate an error that failed given the information provided, and codes in the 500-599 range indicate an error with the Dispatch node. When a request is valid but does not complete successfully, we return a 402 error code.\n\n#### Status and Error Codes\n| Status Code.          | Summary                         | \n| ---------------------------- |:-------------------------------:| \n| 200 - OK                |Everything worked as expected. |\n| 400 - Bad Request       |The request was unacceptable, often due to missing a required parameter. |\n| 401 - Unauthorized      |No valid API key provided. |\n| 402 - Request Failed    |The parameters were valid but the request failed. |\n| 404 - Not Found\t        |The requested resource doesn't exist. |\n| 405 - Method Not Allowed\t        |The requested resource doesn't exist. |\n| 409 - Conflict\t        |The request conflicts with another request  |\n| 418 - I'm a teapot\t        |The node is not a delegate. Please use a delegate when making this request.  |\n| 429 - Too Many Requests |Too many requests hit the API too quickly. We recommend an exponential backoff of your requests. |\n| 500, 502, 503, 504 -    |Server Errors\tSomething went wrong on Disgo's end. (These are rare.) |\n",
       "item": [
         {
-          "_postman_id": "5216580-57091a1a-069d-417d-b0fa-dd26ff2fa180",
           "name": "List TestNet Nodes",
+          "_postman_id": "5216580-57091a1a-069d-417d-b0fa-dd26ff2fa180",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": "http://devseed.dispatchlabs.io:1975/v1/delegates",
             "description": "This URL / API call will return a list of all delegates on the Dispatch network. \n"
           },
@@ -56,10 +53,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": "http://seed.dispatchlabs.io:1975/v1/delegates"
               },
               "status": "OK",
@@ -90,18 +83,17 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-f9bece7d-a3b4-40af-b063-6d6ebea93fd2",
           "name": "Get Account by Address",
+          "_postman_id": "5216580-f9bece7d-a3b4-40af-b063-6d6ebea93fd2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": "http://{{devNode}}:{{port}}/v1/accounts/{{testAccount}}",
             "description": "This endpoint retrieves the detailed account information and balance of an address. \n"
           },
@@ -112,10 +104,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": "http://{{ipAddress}}:{{port}}/v1/accounts/{{accountAddress}}"
               },
               "status": "OK",
@@ -129,7 +117,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-4be089a5-0657-440e-81d5-7b69ec1a2cb9",
           "name": "List Transactions",
           "event": [
             {
@@ -143,16 +130,16 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-4be089a5-0657-440e-81d5-7b69ec1a2cb9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": {
               "raw": "http://{{devNode}}:{{port}}/v1/transactions?page={{pageNumber}}",
               "protocol": "http",
@@ -167,8 +154,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "query": [
                 {
                   "key": "page",
-                  "value": "{{pageNumber}}",
-                  "equals": true
+                  "value": "{{pageNumber}}"
                 }
               ]
             },
@@ -181,10 +167,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": {
                   "raw": "http://{{ipAddress}}:{{port}}/v1/transactions?page={{pageNumber}}",
                   "protocol": "http",
@@ -199,8 +181,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -241,18 +222,17 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-cf3f77ea-7948-44ab-8d25-d8f826ce6ed9",
           "name": "Get Transaction by Hash",
+          "_postman_id": "5216580-cf3f77ea-7948-44ab-8d25-d8f826ce6ed9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": "http://{{devNode}}:{{port}}/v1/transactions/{{hash}}",
             "description": "Call to retrieve a sepcific transaction using it's hash.\n"
           },
@@ -263,10 +243,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": "http://{{ipAddress}}:{{port}}/v1/transactions/{{hash}}"
               },
               "status": "OK",
@@ -280,18 +256,17 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-531a48bd-7538-464f-83a6-23b9c79a6ee2",
           "name": "List Transactions to an address",
+          "_postman_id": "5216580-531a48bd-7538-464f-83a6-23b9c79a6ee2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": {
               "raw": "http://{{devNode}}:{{port}}/v1/transactions?to={{testAccount}}&page={{pageNumber}}",
               "protocol": "http",
@@ -306,13 +281,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "query": [
                 {
                   "key": "to",
-                  "value": "{{testAccount}}",
-                  "equals": true
+                  "value": "{{testAccount}}"
                 },
                 {
                   "key": "page",
-                  "value": "{{pageNumber}}",
-                  "equals": true
+                  "value": "{{pageNumber}}"
                 }
               ]
             },
@@ -325,10 +298,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": {
                   "raw": "http://{{ipAddress}}:{{port}}/v1/transactions?to={{accountAddress}}&page={{pageNumber}}",
                   "protocol": "http",
@@ -343,13 +312,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "to",
-                      "value": "{{accountAddress}}",
-                      "equals": true
+                      "value": "{{accountAddress}}"
                     },
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -365,18 +332,17 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-e0260809-7193-4cbf-b4c5-b7134fced9a8",
           "name": "List Transactions from an address",
+          "_postman_id": "5216580-e0260809-7193-4cbf-b4c5-b7134fced9a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": {
               "raw": "http://{{devNode}}:{{port}}/v1/transactions?from=\"{{fromAddress}}\"&page={{pageNumber}}",
               "protocol": "http",
@@ -391,13 +357,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "query": [
                 {
                   "key": "from",
-                  "value": "\"{{fromAddress}}\"",
-                  "equals": true
+                  "value": "\"{{fromAddress}}\""
                 },
                 {
                   "key": "page",
-                  "value": "{{pageNumber}}",
-                  "equals": true
+                  "value": "{{pageNumber}}"
                 }
               ]
             },
@@ -410,10 +374,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": {
                   "raw": "http://{{ipAddress}}:{{port}}/v1/transactions?from={{accountAddress}}&page={{pageNumber}}",
                   "protocol": "http",
@@ -428,13 +388,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "from",
-                      "value": "{{accountAddress}}",
-                      "equals": true
+                      "value": "{{accountAddress}}"
                     },
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -453,10 +411,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
                 "url": {
                   "raw": "http://{{ipAddress}}:{{port}}/v1/transactions?from={{accountAddress}}&page={{pageNumber}}",
                   "protocol": "http",
@@ -471,13 +425,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "from",
-                      "value": "{{accountAddress}}",
-                      "equals": true
+                      "value": "{{accountAddress}}"
                     },
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -510,7 +462,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-c44728d5-b0cf-4cb5-b1e9-bd456e12e5cf",
           "name": "Send Transaction: Token Transfer",
           "event": [
             {
@@ -524,6 +475,10 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-c44728d5-b0cf-4cb5-b1e9-bd456e12e5cf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
@@ -571,7 +526,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-5da10930-27f6-40b9-911b-f57b27f7faa5",
           "name": "Send Transaction: Deploy Smart Contract",
           "event": [
             {
@@ -585,6 +539,10 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-5da10930-27f6-40b9-911b-f57b27f7faa5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
@@ -632,7 +590,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-48a0e328-7c7e-4a6d-85cc-dd6e3fb0b2ff",
           "name": "Send Transaction: Execute Smart Contract",
           "event": [
             {
@@ -646,6 +603,10 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-48a0e328-7c7e-4a6d-85cc-dd6e3fb0b2ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
@@ -693,6 +654,8 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         }
       ],
+      "_postman_id": "5216580-41392da9-896e-43fa-8ebd-478004175ff8",
+      "description": "\nThe Dispatch protocol provides a modern HTTP API that follows the REST architecture with a JSON format. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application. [JSON](http://www.json.org) is returned by all API responses, including errors, although our API libraries convert responses to appropriate language-specific objects.\n\n### HTTP Responses\nDispatch's API uses conventional HTTP response codes to indicate the success or failure of an API request. Response codes in the 200-299 range indicate success, codes in the 400-499 range indicate an error that failed given the information provided, and codes in the 500-599 range indicate an error with the Dispatch node. When a request is valid but does not complete successfully, we return a 402 error code.\n\n#### Status and Error Codes\n| Status Code.          | Summary                         | \n| ---------------------------- |:-------------------------------:| \n| 200 - OK                |Everything worked as expected. |\n| 400 - Bad Request       |The request was unacceptable, often due to missing a required parameter. |\n| 401 - Unauthorized      |No valid API key provided. |\n| 402 - Request Failed    |The parameters were valid but the request failed. |\n| 404 - Not Found\t        |The requested resource doesn't exist. |\n| 405 - Method Not Allowed\t        |The requested resource doesn't exist. |\n| 409 - Conflict\t        |The request conflicts with another request  |\n| 418 - I'm a teapot\t        |The node is not a delegate. Please use a delegate when making this request.  |\n| 429 - Too Many Requests |Too many requests hit the API too quickly. We recommend an exponential backoff of your requests. |\n| 500, 502, 503, 504 -    |Server Errors\tSomething went wrong on Disgo's end. (These are rare.) |\n",
       "event": [
         {
           "listen": "prerequest",
@@ -717,13 +680,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
       ]
     },
     {
-      "_postman_id": "5216580-7e35497d-3eed-4479-a8cd-296115deec79",
       "name": "MainNet API",
-      "description": "\nThe Dispatch protocol provides a modern HTTP API that follows the REST architecture with a JSON format. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application. [JSON](http://www.json.org) is returned by all API responses, including errors, although our API libraries convert responses to appropriate language-specific objects.\n\n### HTTP Responses\nDispatch's API uses conventional HTTP response codes to indicate the success or failure of an API request. Response codes in the 200-299 range indicate success, codes in the 400-499 range indicate an error that failed given the information provided, and codes in the 500-599 range indicate an error with the Dispatch node. When a request is valid but does not complete successfully, we return a 402 error code.\n\n#### Status and Error Codes\n| Status Code.          | Summary                         | \n| ---------------------------- |:-------------------------------:| \n| 200 - OK                |Everything worked as expected. |\n| 400 - Bad Request       |The request was unacceptable, often due to missing a required parameter. |\n| 401 - Unauthorized      |No valid API key provided. |\n| 402 - Request Failed    |The parameters were valid but the request failed. |\n| 404 - Not Found\t        |The requested resource doesn't exist. |\n| 405 - Method Not Allowed\t        |The requested resource doesn't exist. |\n| 409 - Conflict\t        |The request conflicts with another request  |\n| 418 - I'm a teapot\t        |The node is not a delegate. Please use a delegate when making this request.  |\n| 429 - Too Many Requests |Too many requests hit the API too quickly. We recommend an exponential backoff of your requests. |\n| 500, 502, 503, 504 -    |Server Errors\tSomething went wrong on Disgo's end. (These are rare.) |\n",
       "item": [
         {
-          "_postman_id": "5216580-9a373c8d-6002-44ef-bfb0-1b280fa5f157",
           "name": "List MainNet Nodes",
+          "_postman_id": "5216580-9a373c8d-6002-44ef-bfb0-1b280fa5f157",
           "request": {
             "auth": {
               "type": "noauth"
@@ -778,18 +739,14 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-964b047b-a57a-47d1-bc50-eed56aa71a5a",
           "name": "Get Account by Address",
+          "_postman_id": "5216580-964b047b-a57a-47d1-bc50-eed56aa71a5a",
           "request": {
             "auth": {
               "type": "noauth"
             },
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": "http://{{ipAddress}}:{{port}}/v1/accounts/{{accountAddress}}",
             "description": "This endpoint retrieves the detailed account information and balance of an address. \n"
           },
@@ -817,7 +774,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-39cf28a5-6332-468b-8241-e9d0d6a4022d",
           "name": "List Transactions",
           "event": [
             {
@@ -831,6 +787,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-39cf28a5-6332-468b-8241-e9d0d6a4022d",
           "request": {
             "auth": {
               "type": "noauth"
@@ -855,8 +812,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "query": [
                 {
                   "key": "page",
-                  "value": "{{pageNumber}}",
-                  "equals": true
+                  "value": "{{pageNumber}}"
                 }
               ]
             },
@@ -887,8 +843,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -929,8 +884,8 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-8e1f265c-40bd-4ac5-b188-e0d890c993e9",
           "name": "Get Transaction by Hash",
+          "_postman_id": "5216580-8e1f265c-40bd-4ac5-b188-e0d890c993e9",
           "request": {
             "auth": {
               "type": "noauth"
@@ -968,8 +923,8 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-2514d291-a2e4-4bfe-a7b7-54d5818f1a11",
           "name": "List Transactions to an address",
+          "_postman_id": "5216580-2514d291-a2e4-4bfe-a7b7-54d5818f1a11",
           "request": {
             "auth": {
               "type": "noauth"
@@ -994,13 +949,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "query": [
                 {
                   "key": "to",
-                  "value": "{{toAddress}}",
-                  "equals": true
+                  "value": "{{toAddress}}"
                 },
                 {
                   "key": "page",
-                  "value": "{{pageNumber}}",
-                  "equals": true
+                  "value": "{{pageNumber}}"
                 }
               ]
             },
@@ -1031,13 +984,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "to",
-                      "value": "{{accountAddress}}",
-                      "equals": true
+                      "value": "{{accountAddress}}"
                     },
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -1053,8 +1004,8 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-c4f1ac01-90bd-4ea5-b61e-e11186cbe033",
           "name": "List Transactions from an address",
+          "_postman_id": "5216580-c4f1ac01-90bd-4ea5-b61e-e11186cbe033",
           "request": {
             "auth": {
               "type": "noauth"
@@ -1079,13 +1030,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               "query": [
                 {
                   "key": "from",
-                  "value": "{{accountAddress}}",
-                  "equals": true
+                  "value": "{{accountAddress}}"
                 },
                 {
                   "key": "page",
-                  "value": "{{pageNumber}}",
-                  "equals": true
+                  "value": "{{pageNumber}}"
                 }
               ]
             },
@@ -1116,13 +1065,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "from",
-                      "value": "{{accountAddress}}",
-                      "equals": true
+                      "value": "{{accountAddress}}"
                     },
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -1159,13 +1106,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "from",
-                      "value": "{{accountAddress}}",
-                      "equals": true
+                      "value": "{{accountAddress}}"
                     },
                     {
                       "key": "page",
-                      "value": "{{pageNumber}}",
-                      "equals": true
+                      "value": "{{pageNumber}}"
                     }
                   ]
                 }
@@ -1198,7 +1143,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-d93af9f6-f197-4489-92ff-e77559156c39",
           "name": "Send Transaction: Token Transfer",
           "event": [
             {
@@ -1212,6 +1156,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-d93af9f6-f197-4489-92ff-e77559156c39",
           "request": {
             "auth": {
               "type": "noauth"
@@ -1259,7 +1204,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-e89c033a-15f8-4670-8559-c0be6c0724e4",
           "name": "Send Transaction: Deploy Smart Contract",
           "event": [
             {
@@ -1273,6 +1217,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-e89c033a-15f8-4670-8559-c0be6c0724e4",
           "request": {
             "auth": {
               "type": "noauth"
@@ -1320,7 +1265,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-4ca9bc39-cc6c-47a1-a8b1-c895d6c467f3",
           "name": "Send Transaction: Execute Smart Contract",
           "event": [
             {
@@ -1334,6 +1278,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-4ca9bc39-cc6c-47a1-a8b1-c895d6c467f3",
           "request": {
             "auth": {
               "type": "noauth"
@@ -1381,6 +1326,8 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         }
       ],
+      "_postman_id": "5216580-7e35497d-3eed-4479-a8cd-296115deec79",
+      "description": "\nThe Dispatch protocol provides a modern HTTP API that follows the REST architecture with a JSON format. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application. [JSON](http://www.json.org) is returned by all API responses, including errors, although our API libraries convert responses to appropriate language-specific objects.\n\n### HTTP Responses\nDispatch's API uses conventional HTTP response codes to indicate the success or failure of an API request. Response codes in the 200-299 range indicate success, codes in the 400-499 range indicate an error that failed given the information provided, and codes in the 500-599 range indicate an error with the Dispatch node. When a request is valid but does not complete successfully, we return a 402 error code.\n\n#### Status and Error Codes\n| Status Code.          | Summary                         | \n| ---------------------------- |:-------------------------------:| \n| 200 - OK                |Everything worked as expected. |\n| 400 - Bad Request       |The request was unacceptable, often due to missing a required parameter. |\n| 401 - Unauthorized      |No valid API key provided. |\n| 402 - Request Failed    |The parameters were valid but the request failed. |\n| 404 - Not Found\t        |The requested resource doesn't exist. |\n| 405 - Method Not Allowed\t        |The requested resource doesn't exist. |\n| 409 - Conflict\t        |The request conflicts with another request  |\n| 418 - I'm a teapot\t        |The node is not a delegate. Please use a delegate when making this request.  |\n| 429 - Too Many Requests |Too many requests hit the API too quickly. We recommend an exponential backoff of your requests. |\n| 500, 502, 503, 504 -    |Server Errors\tSomething went wrong on Disgo's end. (These are rare.) |\n",
       "event": [
         {
           "listen": "prerequest",
@@ -1405,12 +1352,9 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
       ]
     },
     {
-      "_postman_id": "5216580-92d33d5a-bbe5-4c37-b095-1686be530494",
       "name": "Localhost API",
-      "description": "The [Dispatch Go client](http://dispatchlabs.io/dispatchlabs/disgo) includes a local API with several functions. Because the API allows for access to the Private key, we have added basic authentication for the local API. The username defaul is \"Disgo\" and the password is \"Dance\" and the default login is included in this Postman collection.",
       "item": [
         {
-          "_postman_id": "5216580-72671e44-f12b-4bc6-8a20-8efdea80f773",
           "name": "Get Local Account",
           "event": [
             {
@@ -1424,6 +1368,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-72671e44-f12b-4bc6-8a20-8efdea80f773",
           "request": {
             "auth": {
               "type": "basic",
@@ -1491,7 +1436,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-27e6d758-b505-4fc7-bf1c-fa66d8fb57d1",
           "name": "Create Local Account",
           "event": [
             {
@@ -1505,6 +1449,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-27e6d758-b505-4fc7-bf1c-fa66d8fb57d1",
           "request": {
             "auth": {
               "type": "basic",
@@ -1572,7 +1517,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-23286b83-c25a-4fed-8005-43915bb5ed53",
           "name": "Package Transaction",
           "event": [
             {
@@ -1586,6 +1530,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-23286b83-c25a-4fed-8005-43915bb5ed53",
           "request": {
             "auth": {
               "type": "basic",
@@ -1638,13 +1583,11 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
                   "query": [
                     {
                       "key": "to",
-                      "value": "{{toAddress}}",
-                      "equals": true
+                      "value": "{{toAddress}}"
                     },
                     {
                       "key": "tokens",
-                      "value": "{{amount}}",
-                      "equals": true
+                      "value": "{{amount}}"
                     }
                   ]
                 }
@@ -1677,7 +1620,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-5fdd87b7-7bde-41ba-978c-f429e4bc3e4f",
           "name": "Transfer Tokens",
           "event": [
             {
@@ -1691,6 +1633,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-5fdd87b7-7bde-41ba-978c-f429e4bc3e4f",
           "request": {
             "auth": {
               "type": "basic",
@@ -1762,7 +1705,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-2a9729a1-53bb-4d7f-8582-73bed3aef032",
           "name": "Deploy Smart Contract",
           "event": [
             {
@@ -1776,6 +1718,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-2a9729a1-53bb-4d7f-8582-73bed3aef032",
           "request": {
             "auth": {
               "type": "basic",
@@ -1843,7 +1786,6 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         },
         {
-          "_postman_id": "5216580-c23e9a07-076a-4b1c-bced-61f35f698bde",
           "name": "Execute Smart Contract",
           "event": [
             {
@@ -1857,6 +1799,7 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
               }
             }
           ],
+          "_postman_id": "5216580-c23e9a07-076a-4b1c-bced-61f35f698bde",
           "request": {
             "auth": {
               "type": "basic",
@@ -1924,6 +1867,8 @@ Defines the difference between an Artifact (A) and its updated version (A)\n\n#
           ]
         }
       ],
+      "_postman_id": "5216580-92d33d5a-bbe5-4c37-b095-1686be530494",
+      "description": "The [Dispatch Go client](http://dispatchlabs.io/dispatchlabs/disgo) includes a local API with several functions. Because the API allows for access to the Private key, we have added basic authentication for the local API. The username defaul is \"Disgo\" and the password is \"Dance\" and the default login is included in this Postman collection.",
       "event": [
         {
           "listen": "prerequest",
